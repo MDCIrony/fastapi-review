@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "fastapi-example"
+version = "0.1.0"
+description = "Some practice fast api examples"
+authors = ["MDCIrony <miguel.acastillodiaz@outlook.es>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "fastapi_example"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
