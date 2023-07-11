@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from enum import Enum
+from typing import Union
 
 app = FastAPI()
 
@@ -37,3 +38,15 @@ async def get_model(model_name: ModelName):
         "model_name": model_name,
         "message": f"Third residual cap {model_name.third.name}",
     }
+
+
+@app.get("/multiple-path-params/{page}")
+async def get_sample_query(
+    page: int, name: str, last_name: Union[str, None] = None, age: int = 18
+):
+    return_object = {"page": page, "name": name, "age": age}
+
+    if last_name is not None:
+        return_object.update({"last_name": last_name})
+
+    return return_object
